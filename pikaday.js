@@ -344,9 +344,17 @@
         return '<td data-day="' + opts.day + '" class="' + arr.join(' ') + '" aria-selected="' + ariaSelected + '">' +
                  '<button class="pika-button pika-day" type="button" ' +
                     'data-pika-year="' + opts.year + '" data-pika-month="' + opts.month + '" data-pika-day="' + opts.day + '">' +
-                        opts.day +
+                        addZeroToSingleDigit(opts.day) +
                  '</button>' +
                '</td>';
+    },
+
+    addZeroToSingleDigit = function(number) {
+        if (number > 0 && number < 10) {
+            return "0" + number;
+        }
+
+        return number
     },
 
     isoWeek = function(date) {
